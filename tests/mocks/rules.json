@@ -1,0 +1,13 @@
+{
+    "simple_gt": {
+        "condition": {
+            "type": "predefined",
+            "operation": "gt",
+            "params": {
+                "value": "weight",
+                "other": 0,
+                "message": "The weight must be greater than zero." 
+            }
+        }
+    }
+}

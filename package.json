@@ -1,0 +1,59 @@
+{
+  "name": "lob-rulesengine",
+  "version": "0.1.0",
+  "description": "A rules engine for LOB applications in NodeJS",
+  "main": "lib",
+  "scripts": {
+    "clean": "rimraf lib",
+    "test": "npm run test:flow && npm run test:specs",
+    "test:flow": "flow check",
+    "test:specs": "set NODE_ENV=test && mocha --require babel-register -R spec ./tests/*.spec.js ./tests/**/*.spec.js"
+  },
+  "author": {
+    "email": "dev@wmit.io",
+    "name": "WMIT.IO Dev Team",
+    "url": "https://github.com/wmitio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wmitio/lob-rulesengine.git"
+  },
+  "keywords": [
+    "rule",
+    "rules",
+    "rules engine",
+    "LOB",
+    "line-of-business"
+  ],
+  "homepage": "https://github.com/wmitio/lob-rulesengine#readme",
+  "bugs": {
+    "url": "https://github.com/wmitio/lob-rulesengine/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "babel-watch": "^2.0.6",
+    "chai": "^4.0.2",
+    "del": "^3.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
+    "flow-bin": "^0.48.0",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-babel": "^6.1.2",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.4.2",
+    "rimraf": "^2.6.1",
+    "sinon": "^2.3.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "simple": {
+    "rules": [{
+      "rule": {
+        "condition": {
+          "type": "predefined",
+          "operation": "gt",
+          "params": {
+            "value": "weight",
+            "other": 0,
+            "message": "The weight must be greater than zero."
+          }
+        }
+      },
+      "order": 1,
+      "link": "AND"
+    }, 
+    {
+      "rule":{
+        "condition": "predefined",
+        "operation": "between",
+        "params":{
+          "value": "constructionYear",
+          "min": 1900,
+          "max": 2015,
+          "message": "The year of construction must be betwen 1900 and 2015."
+        }
+      },
+      "order": 2
+    }]
+  },
+  "invalid": {
+    "rules": [{
+      "rule": {
+        "condition": {
+          "type": "predefined",
+          "operation": "gt",
+          "params": {
+            "value": "weight",
+            "other": 0,
+            "message": "The weight must be greater than zero."
+          }
+        }
+      },
+      "order": 1,
+      "link": "AND"
+    }, 
+    {
+      "rule":{
+        "condition": "predefined",
+        "operation": "between",
+        "params":{
+          "value": "constructionYear",
+          "min": 1900,
+          "max": 2015,
+          "message": "The year of construction must be betwen 1900 and 2015."
+        }
+      },
+      "order": 1
+    }]
+  }
+}
