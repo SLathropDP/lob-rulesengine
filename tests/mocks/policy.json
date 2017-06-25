@@ -1,0 +1,195 @@
+{
+  "simple": {
+    "rules": [{
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "gt",
+            "params": {
+              "value": "weight",
+              "other": 0,
+              "message": "The weight must be greater than zero."
+            }
+          }
+        },
+        "order": 1,
+        "link": "AND"
+      },
+      {
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "between",
+            "params": {
+              "value": "constructionYear",
+              "min": 1900,
+              "max": 2015,
+              "message": "The year of construction must be betwen 1900 and 2015."
+            }
+          }
+        },
+        "order": 2
+      }
+    ]
+  },
+  "simple3": {
+    "rules": [{
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "gt",
+            "params": {
+              "value": "weight",
+              "other": 0,
+              "message": "The weight must be greater than zero."
+            }
+          }
+        },
+        "order": 1,
+        "link": "AND"
+      },
+      {
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "between",
+            "params": {
+              "value": "constructionYear",
+              "min": 1900,
+              "max": 2015,
+              "message": "The year of construction must be betwen 1900 and 2015."
+            }
+          }
+        },
+        "order": 2,
+        "link": "AND"
+      },
+      {
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "required",
+            "params": {
+              "value": "name",
+              "message": "The name is a mandatory field."
+            }
+          }
+        },
+        "order": 3
+      }
+    ]
+  },
+  "simpleor": {
+    "rules": [{
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "required",
+            "params": {
+              "value": "lastName",
+              "message": "The last name or company name is required."
+            }
+          }
+        },
+        "order": 1,
+        "link": "OR"
+      },
+      {
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "required",
+            "params": {
+              "value": "companyName",
+              "message": "The last name or company name is required."
+            }
+          }
+        },
+        "order": 2
+      }
+    ]
+  },
+  "complexor": {
+    "rules": [
+      {
+        "rules": [
+          {
+          "rule": {
+              "condition": {
+                "type": "predefined",
+                "operation": "required",
+                "params": {
+                  "value": "lastName",
+                  "message": "Last/First name or company name is required."
+                }
+              }
+          },
+          "order": 1,
+          "link": "AND"
+          },
+            {
+              "rule": {
+              "condition": {
+                "type": "predefined",
+                "operation": "required",
+                "params": {
+                  "value": "firstName",
+                  "message": "Last/First name or company name is required."
+                }
+              }
+              },
+              "order": 2
+            }
+          ],
+          "order": 1,
+          "link": "OR"
+      },
+      {
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "required",
+            "params": {
+              "value": "companyName",
+              "message": "The last name or company name is required."
+            }
+          }
+        },
+        "order": 2
+      }
+    ]
+  },
+  "invalid": {
+    "rules": [{
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "gt",
+            "params": {
+              "value": "weight",
+              "other": 0,
+              "message": "The weight must be greater than zero."
+            }
+          }
+        },
+        "order": 1,
+        "link": "AND"
+      },
+      {
+        "rule": {
+          "condition": {
+            "type": "predefined",
+            "operation": "between",
+            "params": {
+              "value": "constructionYear",
+              "min": 1900,
+              "max": 2015,
+              "message": "The year of construction must be betwen 1900 and 2015."
+            }
+          }
+        },
+        "order": 1
+      }
+    ]
+  }
+}

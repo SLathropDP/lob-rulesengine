@@ -1,0 +1,7 @@
+## customize test machine
+machine:
+  timezone:
+    America/New_York
+
+  node:
+    version: 6.10.2
