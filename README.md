@@ -1,5 +1,8 @@
 # Rules Engine for Line-of-Business (LOB) Applications
 
+[![Known Vulnerabilities](https://snyk.io/test/github/wmitio/lob-rulesengine/badge.svg)](https://snyk.io/test/github/wmitio/lob-rulesengine)
+[![CircleCI](https://circleci.com/gh/wmitio/lob-rulesengine.svg?style=shield)](https://circleci.com/gh/wmitio/lob-rulesengine)
+
 A rules engine for LOB applications in Node.JS. This library allows you to define your rules either in JSON (declarative approach) or write JS code (programmatic approach).
 
 ## Terminology
