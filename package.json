@@ -40,20 +40,24 @@
     "babel-register": "^6.24.1",
     "babel-watch": "^2.0.6",
     "chai": "^4.0.2",
+    "chai-as-promised": "^7.0.0",
     "del": "^3.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0",
     "flow-bin": "^0.48.0",
     "gulp": "^3.9.1",
-    "gulp-plumber": "^1.1.0",
     "gulp-babel": "^6.1.2",
+    "gulp-plumber": "^1.1.0",
     "mkdirp": "^0.5.1",
     "mocha": "^3.4.2",
     "rimraf": "^2.6.1",
     "sinon": "^2.3.4"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "bluebird": "^3.5.0",
+    "lodash": "^4.17.4",
+    "query-string": "^4.3.4",
+    "request": "^2.81.0"
   }
 }

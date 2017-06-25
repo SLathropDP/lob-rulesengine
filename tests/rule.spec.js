@@ -1,7 +1,7 @@
 /* global describe, it */
 
-const BusinessRule = require('../src/rule');
-const mockedRule = require('./mocks/rules.json');
+import { BusinessRule } from '../src/rule';
+import mockedRule from './mocks/rules.json';
 
 const {
   expect,
@@ -41,20 +41,5 @@ describe("Rule", () => {
     r.loadJson(JSON.stringify(mockedRule.simple_gt));
     const valid = r.validateRule();
     expect(valid).to.be.true; // eslint-disable-line no-unused-expressions
-  });
-
-  it("should detect rule type 'simple' if no subrules are defined", () => {
-    const r = new BusinessRule();
-    r.loadJson(JSON.stringify(mockedRule.simple_gt));
-    expect(r.ruleType()).equal("simple");
-  });
-
-  it("should detect rule type 'nested' if subrules are defined", () => {
-    const r = new BusinessRule();
-    r.loadJson(JSON.stringify(mockedRule.simple_gt));
-    const nr = new BusinessRule();
-    nr.subrules = [];
-    nr.subrules.push(r);
-    expect(nr.ruleType()).equal("nested");
   });
 });

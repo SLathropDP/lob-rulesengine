@@ -1,10 +1,15 @@
 /* @flow */
 
-const _ = require("lodash");
-const BusinessRule = require('./rule');
+import {
+  _
+} from 'lodash';
+import {
+  BusinessRule
+} from './rule';
 
 export interface PolicyRule {
   rule: BusinessRule;
+  rules: PolicyRule[];
   name: ? string;
   order: number;
   link: ? string;
@@ -34,15 +39,33 @@ function validateNewPolicyRule(rule: PolicyRule, others: PolicyRule[]): boolean 
   return true;
 }
 
+function loadPolicyRule(rule: PolicyRule): PolicyRule {
+  if (rule.rule) {
+    const br = new BusinessRule();
+    br.loadJson(JSON.stringify(rule.rule));
+    rule.rule = br;
+  } else if (rule.rules) {
+    _.forEach(rule.rules, (pr, index) => {
+      rule.rules[index] = loadPolicyRule(pr);
+    });
+  }
+  return rule;
+}
+
 export class Policy {
   rules: Array < PolicyRule > ;
 
-  constructor(initialRules: Array <PolicyRule>) {
+  constructor(initialRules: Array<PolicyRule>) {
     this.rules = initialRules || [];
   }
 
   addRule(newRule: PolicyRule): boolean {
-    if (newRule.rule.validateRule()) {
+    if (newRule.rule && newRule.rule.validateRule()) {
+      if (validateNewPolicyRule(newRule, this.rules)) {
+        this.rules.push(newRule);
+        return true;
+      }
+    } else if (!newRule.rule) {
       if (validateNewPolicyRule(newRule, this.rules)) {
         this.rules.push(newRule);
         return true;
@@ -80,9 +103,7 @@ export class Policy {
     if (!dataObj.rules) throw new Error('JSON data does not contain property rules, please refer to the documentation.');
 
     _.each(dataObj.rules, (r) => {
-      const br = new BusinessRule();
-      br.loadJson(JSON.stringify(r.rule));
-      r.rule = br;
+      r = loadPolicyRule(r);
       if (!this.addRule(r)) {
         this.clearRules();
         throw new Error(`Failed to load rule with order '${r.order}'; all policy rules have been cleared.`);
