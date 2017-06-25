@@ -1,6 +1,6 @@
 {
   "name": "lob-rulesengine",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A rules engine for LOB applications in NodeJS",
   "main": "lib",
   "scripts": {

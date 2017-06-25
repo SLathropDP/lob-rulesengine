@@ -1,5 +1,6 @@
 # Rules Engine for Line-of-Business (LOB) Applications
 
+[![npm version](https://badge.fury.io/js/lob-rulesengine.svg)](https://badge.fury.io/js/lob-rulesengine)
 [![Known Vulnerabilities](https://snyk.io/test/github/wmitio/lob-rulesengine/badge.svg)](https://snyk.io/test/github/wmitio/lob-rulesengine)
 [![CircleCI](https://circleci.com/gh/wmitio/lob-rulesengine.svg?style=shield)](https://circleci.com/gh/wmitio/lob-rulesengine)
 
