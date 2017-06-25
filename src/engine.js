@@ -22,6 +22,7 @@ function evaluatePredefinedCondition(fact: any, policyRule: PolicyRule, errorMes
   }
 
   const rule = (policyRule.rule: BusinessRule);
+  let httpOpts = {};
 
   return new Promise((resolve, reject) => {
     console.log('Rule processing', rule);
@@ -69,14 +70,14 @@ function evaluatePredefinedCondition(fact: any, policyRule: PolicyRule, errorMes
         if (result === false) errorMessages.push(rule.ruleObject.condition.params.message);
         break;
       case "httpget":
-        const getOpts = _.cloneDeep(rule.ruleObject.condition.params.options);
-        getOpts.url = getOpts.url + `?` + qs.stringify(fact);
-        resultp = requestp(getOpts);
+        httpOpts = _.cloneDeep(rule.ruleObject.condition.params.options);
+        httpOpts.url = `${httpOpts.url}?${qs.stringify(fact)}`;
+        resultp = requestp(httpOpts);
         break;
       case "httppost":
-        const postOpts = _.cloneDeep(rule.ruleObject.condition.params.options);
-        postOpts.body = fact;
-        postOpts.json = true;
+        httpOpts = _.cloneDeep(rule.ruleObject.condition.params.options);
+        httpOpts.body = fact;
+        httpOpts.json = true;
         resultp = requestp(rule.ruleObject.condition.params.options);
         break;
       default:
