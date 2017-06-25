@@ -7,7 +7,9 @@
     "clean": "rimraf lib",
     "test": "npm run test:flow && npm run test:specs",
     "test:flow": "flow check",
-    "test:specs": "set NODE_ENV=test && mocha --require babel-register -R spec ./tests/*.spec.js ./tests/**/*.spec.js"
+    "test:specs": "set NODE_ENV=test && mocha --require babel-register -R spec ./tests/*.spec.js ./tests/**/*.spec.js",
+    "build": "gulp build",
+    "prepublish": "npm run build"
   },
   "author": {
     "email": "dev@wmit.io",
