@@ -1,8 +1,9 @@
 {
   "name": "lob-rulesengine",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A rules engine for LOB applications in NodeJS",
   "main": "lib",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "clean": "rimraf lib",
     "test": "npm run test:flow && npm run test:specs",
