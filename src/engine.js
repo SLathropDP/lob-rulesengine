@@ -42,7 +42,7 @@ function evaluatePredefinedCondition(fact: any, policyRule: PolicyRule, errorMes
         if (result === false) errorMessages.push(rule.ruleObject.condition.params.message);
         break;
       case "betweenlength":
-        result = _.has(fact, rule.ruleObject.condition.params.value) && _.isString(fact[rule.ruleObject.condition.params.value]) && rule.ruleObject.condition.params.min <= fact[rule.ruleObject.condition.params.value].length <= rule.ruleObject.condition.params.max;
+        result = _.has(fact, rule.ruleObject.condition.params.value) && _.isString(fact[rule.ruleObject.condition.params.value]) && (rule.ruleObject.condition.params.min <= fact[rule.ruleObject.condition.params.value].length) && (fact[rule.ruleObject.condition.params.value].length <= rule.ruleObject.condition.params.max);
         if (result === false) errorMessages.push(rule.ruleObject.condition.params.message);
         break;
       case "gt":
@@ -62,11 +62,11 @@ function evaluatePredefinedCondition(fact: any, policyRule: PolicyRule, errorMes
         if (result === false) errorMessages.push(rule.ruleObject.condition.params.message);
         break;
       case "between":
-        result = rule.ruleObject.condition.params.min <= (fact[rule.ruleObject.condition.params.value]) <= rule.ruleObject.condition.params.max;
+        result = (rule.ruleObject.condition.params.min <= fact[rule.ruleObject.condition.params.value]) && (fact[rule.ruleObject.condition.params.value] <= rule.ruleObject.condition.params.max);
         if (result === false) errorMessages.push(rule.ruleObject.condition.params.message);
         break;
       case "notin":
-        result = rule.ruleObject.condition.params.min > (fact[rule.ruleObject.condition.params.value]) > rule.ruleObject.condition.params.max;
+        result = (rule.ruleObject.condition.params.min > fact[rule.ruleObject.condition.params.value]) && (fact[rule.ruleObject.condition.params.value] > rule.ruleObject.condition.params.max);
         if (result === false) errorMessages.push(rule.ruleObject.condition.params.message);
         break;
       case "httpget":
