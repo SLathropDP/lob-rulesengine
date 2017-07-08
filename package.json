@@ -1,6 +1,6 @@
 {
   "name": "lob-rulesengine",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A rules engine for LOB applications in NodeJS",
   "main": "lib",
   "types": "./lib/index.d.ts",
@@ -9,7 +9,7 @@
     "test": "npm run test:flow && npm run test:specs",
     "test:flow": "flow check",
     "test:specs": "set NODE_ENV=test && mocha --require babel-register -R spec ./tests/*.spec.js ./tests/**/*.spec.js",
-    "build": "gulp build",
+    "build": "gulp build && gulp typescript",
     "prepublish": "npm run build"
   },
   "author": {

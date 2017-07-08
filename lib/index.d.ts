@@ -1,3 +1,9 @@
+// Type definitions for LOB Rules Engine  v0.1.5
+// Project: https://github.com/wmitio/lob-rulesengine
+// Definitions by: Sven Maschek <https://github.com/SMK1085>
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.3.4
+
 declare module 'lob-rulesengine' {
   export class BusinessRule {
     public ruleObject: any;
