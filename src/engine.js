@@ -25,7 +25,6 @@ function evaluatePredefinedCondition(fact: any, policyRule: PolicyRule, errorMes
   let httpOpts = {};
 
   return new Promise((resolve, reject) => {
-    console.log('Rule processing', rule);
     let result: boolean;
     let resultp: Object = { noPromise: true };
     switch (rule.ruleObject.condition.operation) {
@@ -117,7 +116,6 @@ function executePolicyRules(fact: any, engine: Object, rules: PolicyRule[], subR
     if (r.rule && r.rule.ruleObject && r.rule.ruleObject.condition) {
       if (r.rule.ruleObject.condition.type === 'predefined') {
         promResult = promResult.then((prev) => {
-          console.log('Previous', prev);
           return evaluatePredefinedCondition(fact, r, engine.errors, prev.result, prev.link);
         });
       } else {
